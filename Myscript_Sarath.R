@@ -25,3 +25,8 @@ df <- data.frame(age,mdu)
 plot(df)
 
 
+install.packages("mosaic")
+
+
+
+
