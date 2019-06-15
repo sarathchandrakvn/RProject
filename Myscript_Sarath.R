@@ -36,6 +36,7 @@ table(doctorVisits$health)
 barplot(table(doctorVisits$health))
 
 
+
 ggplot(doctorVisits, aes(x = lfam, fill = sex)) + theme_bw() + geom_histogram() + facet_wrap(~idp+physlim+child) + labs(y = "Frequency", x = "Family Income",  title = "Histogram: Contacts With Medical Doctor")
 
 
