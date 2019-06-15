@@ -17,16 +17,14 @@ mdu <- doctorVisits[2]
 
 length(mdu)
 
-
 View(mdu)
 
 df <- data.frame(age,mdu)
 
 plot(df)
 
-
 install.packages("mosaic")
 
+library("mosaic")
 
-
-
+install.packages("ggplot2")
