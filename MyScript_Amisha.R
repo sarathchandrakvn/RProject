@@ -1,0 +1,10 @@
+help()
+medical<-read.csv("dataset_DoctorContacts.csv",na.strings="")
+View(medical)
+count(medical)
+tally(~mdu,data=medical,margins=TRUE)
+install.packages("mosaic")
+summary(medical)
+tally(~(mdu>1),data=medical,margins=TRUE)
+tally(~(health=="poor"),data=medical,margins=TRUE,format="perc")
+  
