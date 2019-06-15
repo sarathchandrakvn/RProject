@@ -17,6 +17,7 @@ mdu <- doctorVisits[2]
 
 length(mdu)
 
+
 View(mdu)
 
 df <- data.frame(age,mdu)
