@@ -31,6 +31,10 @@ install.packages("ggplot2")
 
 library(ggplot2)
 
+install.packages("ggExtra")
+
+library("ggExtra")
+
 table(doctorVisits$health)
 
 barplot(table(doctorVisits$health))
@@ -43,6 +47,20 @@ ggplot(doctorVisits, aes(x = mdu, fill = sex)) + theme_bw() + geom_histogram() +
 
 ggplot(doctorVisits, aes(x = mdu, y = lfam, fill = sex)) + theme_bw() + geom_boxplot() + facet_wrap(~idp+physlim+child) + labs(y = "Price", x = "Health",  title = "Boxplot: Contacts With Medical Doctor")
 
-ggplot(doctorVisits, aes(x = mdu, y = age,col=age))   + theme_bw() + geom_point() + geom_smooth(method="lm",se=F) + labs(y = "Medical Deductible Expenditure", x = "MDU Size", title = "Scatter Plot: Contacts With Medical Doctor")
+ggplot(doctorVisits, aes(x = mdu, y = age ,col=age)) + theme_gray() + geom_point(shape = 8, size = 1.5, show.legend = TRUE, alpha = 0.5) + geom_smooth(method="lm",se=F)  
+
++  geom_label(label=rownames(doctorVisits), color="green", size=5) 
++ labs(y = "Age", x = "MDU Size", title = "Scatter Plot: Contacts With Medical Doctor")
+
+install.packages("qqman")
+
+ggplot(doctorVisits, aes(x = mdu, y = age ,col=age )) + theme_gray() + geom_text(aes (label = age) ,color="blue", size=3 ,vjust =2,check_overlap = TRUE ) + geom_text(aes (label = mdu) ,color="red", size=3 ,vjust =3,check_overlap = TRUE ) + geom_point(shape = 8, size = 2, show.legend = TRUE, alpha = 0.5) + geom_smooth(method="lm",se=F)  + labs(y = "Age", x = "MDU Size", title = "Scatter Plot: Contacts With Medical Doctor")
+
+p <- ggplot(doctorVisits, aes(x = mdu, y = age ,col=age )) + theme_gray() + geom_text(aes (label = age) ,color="red", size=3 ,vjust =4,check_overlap = TRUE ) + geom_text(aes (label = mdu) ,color="yellow", size=3 ,vjust =4,check_overlap = TRUE ) + geom_point(shape = 8, size = 0, show.legend = TRUE, alpha = 0.5) + geom_smooth(method="lm",se=F)  + labs(y = "Age", x = "MDU Size", title = "Scatter Plot: Contacts With Medical Doctor")
+
+
+ggMarginal(p, type="histogram")
+
+
 
 
